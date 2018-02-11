@@ -6,6 +6,18 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+// Initialize Firebase
+ var config = {
+   apiKey: "AIzaSyDbZ49mKjauw3lJd0WUWfwcjVXnNKuZQcg",
+   authDomain: "revolve-farms.firebaseapp.com",
+   databaseURL: "https://revolve-farms.firebaseio.com",
+   projectId: "revolve-farms",
+   storageBucket: "revolve-farms.appspot.com",
+   messagingSenderId: "78612602380"
+ };
+ 
+ firebase.initializeApp(config);
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
