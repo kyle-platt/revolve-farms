@@ -26,7 +26,7 @@ let router = new Router({
       path: '/home',
       name: 'Home',
       component: Home,
-      mata: {
+      meta: {
         requiresAuth: true
       }
     }

@@ -9,7 +9,7 @@
 
 <script>
   import firebase from 'firebase'
-  
+
   export default {
     name: 'login',
     data: function() {
@@ -33,18 +33,18 @@
   }
 </script>
 
-<style scoped>
-.login {
-  margin-top: 40px;
-}
-input {
-  margin: 10px 0;
-  width: 20%;
-  padding: 15px;
-}
-button {
-  margin-top: 20px;
-  width: 10%;
-  cursor: pointer;
-}
+<style scoped>  /* "scoped" attribute limit the CSS to this component only */
+  .login {
+    margin-top: 40px;
+  }
+  input {
+    margin: 10px 0;
+    width: 20%;
+    padding: 15px;
+  }
+  button {
+    margin-top: 20px;
+    width: 10%;
+    cursor: pointer;
+  }
 </style>

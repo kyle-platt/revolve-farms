@@ -8,25 +8,24 @@ import firebase from 'firebase'
 Vue.config.productionTip = false
 
 let app;
-// Initialize Firebase
- var config = {
-   apiKey: "AIzaSyDbZ49mKjauw3lJd0WUWfwcjVXnNKuZQcg",
-   authDomain: "revolve-farms.firebaseapp.com",
-   databaseURL: "https://revolve-farms.firebaseio.com",
-   projectId: "revolve-farms",
-   storageBucket: "revolve-farms.appspot.com",
-   messagingSenderId: "78612602380"
- };
+let config = {
+  apiKey: "AIzaSyDbZ49mKjauw3lJd0WUWfwcjVXnNKuZQcg",
+  authDomain: "revolve-farms.firebaseapp.com",
+  databaseURL: "https://revolve-farms.firebaseio.com",
+  projectId: "revolve-farms",
+  storageBucket: "revolve-farms.appspot.com",
+  messagingSenderId: "78612602380"
+};
 
- firebase.initializeApp(config)
- firebase.auth().onAuthStateChanged(function(user) {
-   if (!app) {
-     /* eslint-disable no-new */
-     app = new Vue({
-       el: '#app',
-       template: '<App/>',
-       components: { App },
-       router
-     })
-   }
- });
+firebase.initializeApp(config)
+firebase.auth().onAuthStateChanged(function(user) {
+  if (!app) {
+    /* eslint-disable no-new */
+    app = new Vue({
+      el: '#app',
+      template: '<App/>',
+      components: { App },
+      router
+    })
+  }
+});
