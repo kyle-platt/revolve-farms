@@ -1,9 +1,10 @@
 <template>
   <div class="login">
+    <img src="../assets/Revolve-logo.png"><br>
     <h3>Sign In</h3>
     <input type="text" v-model="email" placeholder="Email"><br>
     <input type="password" v-model="password" placeholder="Password"><br>
-    <button v-on:click="signIn">Connection</button>
+    <button class="revolve-btn" v-on:click="signIn">Log in</button>
   </div>
 </template>
 
@@ -42,9 +43,27 @@
     width: 20%;
     padding: 15px;
   }
-  button {
-    margin-top: 20px;
-    width: 10%;
+  .revolve-btn {
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-size: 1.5rem;
+    padding: 14px 80px;
+    background-color: #AAD152;
+    margin: 20px auto;
+    width: 22%;
     cursor: pointer;
+    transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
   }
+  .revolve-btn:hover {
+    background-color: #a0cc3e;
+  }
+
+  button.revolve-btn {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  }
+
 </style>
