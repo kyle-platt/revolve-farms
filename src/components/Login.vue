@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <img src="../assets/Revolve-logo.png"><br>
+    <img src="../assets/Revolve-farms-logo.png" width="400" height="300"><br>
     <h3>Sign In</h3>
     <input type="text" v-model="email" placeholder="Email"><br>
     <input type="password" v-model="password" placeholder="Password"><br>
@@ -58,7 +58,7 @@
     -moz-transition-duration: 0.5s;
   }
   .revolve-btn:hover {
-    background-color: #a0cc3e;
+    background-color: #6D8E22;
   }
 
   button.revolve-btn {
