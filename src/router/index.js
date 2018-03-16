@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import Home from '@/components/Home'
 import Login from '@/components/Login'
+import InputMeasures from '@/components/InputMeasures'
 import firebase from 'firebase'
 
 Vue.use(Router)
@@ -21,6 +22,14 @@ let router = new Router({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+    path: '/input-measures',
+    name: 'Input Measures',
+    component: InputMeasures,
+    meta: {
+      requiresAuth: true
+    }
     },
     {
       path: '/home',
