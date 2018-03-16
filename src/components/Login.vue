@@ -2,9 +2,9 @@
   <div class="login">
     <img src="../assets/Revolve-farms-logo.png" width="400" height="300"><br>
     <h3>Sign In</h3>
-    <input type="text" v-model="email" placeholder="Email"><br>
-    <input type="password" v-model="password" placeholder="Password"><br>
-    <button class="revolve-btn" v-on:click="signIn">Log in</button>
+    <input type="text" v-on:keyup.13="signIn" v-model="email" placeholder="Email"><br>
+    <input id="psw" type="password" v-on:keyup.13="signIn" v-model="password" placeholder="Password"><br>
+    <button id="logBtn" class="revolve-btn" v-on:click="signIn">Log in</button>
   </div>
 </template>
 
