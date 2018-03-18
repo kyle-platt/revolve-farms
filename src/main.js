@@ -4,20 +4,14 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import firebase from 'firebase'
+import VueFire from 'vuefire'
+import './firebase';
 
 Vue.config.productionTip = false
+Vue.use(VueFire);
 
 let app;
-let config = {
-  apiKey: "AIzaSyDbZ49mKjauw3lJd0WUWfwcjVXnNKuZQcg",
-  authDomain: "revolve-farms.firebaseapp.com",
-  databaseURL: "https://revolve-farms.firebaseio.com",
-  projectId: "revolve-farms",
-  storageBucket: "revolve-farms.appspot.com",
-  messagingSenderId: "78612602380"
-};
 
-firebase.initializeApp(config)
 firebase.auth().onAuthStateChanged(function(user) {
   if (!app) {
     /* eslint-disable no-new */

@@ -1,25 +1,24 @@
 <template>
-  <div class="InputMeasures">
-    <input v-model="measure.date" placeholder="enter date"><br>
-    <button class="revolve-btn" v-on:click="publish">Publish</button>
+  <div class="app">
+    <input v-model="date" placeholder="enter date"><br>
+    <button class="revolve-btn" v-on:click="submitMeasure">Publish</button>
   </div>
 </template>
 
 <script>
 import firebase from 'firebase';
+import { dateRef } from '../firebase';
 
 export default {
 
   data () {
     return {
-      measure: {
-        date: ""
-      },
+      date: ''
     }
   },
   methods: {
-    publish: function(){
-      this.$http.post('https://revolve-farms.firebaseio.com/measures.json', this.measure);
+    submitMeasure() {
+      dateRef.push({ date: this.date});
     }
   }
 }
