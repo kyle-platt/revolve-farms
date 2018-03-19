@@ -1,6 +1,12 @@
 <template>
   <div class="app">
-    <input v-model="date" placeholder="enter date"><br>
+    <input v-model="date" placeholder="enter date mm/dd/yyyy"><br>
+    <input v-model="ph" placeholder="enter ph"><br>
+    <input v-model="nitrate" placeholder="enter nitrate"><br>
+    <input v-model="nitrite" placeholder="enter nitrite"><br>
+    <input v-model="temperature" placeholder="enter temperature"><br>
+    <input v-model="ammonia" placeholder="enter ammonia"><br>
+    <input v-model="user" placeholder="enter username"><br>
     <button class="revolve-btn" v-on:click="submitMeasure">Publish</button>
   </div>
 </template>
@@ -18,7 +24,13 @@ export default {
   },
   methods: {
     submitMeasure() {
-      dateRef.push({ date: this.date});
+      dateRef.push({ date: this.date,
+      ph: this.ph,
+      nitrate: this.nitrate,
+      nitrite: this.nitrite,
+      temperature: this.temperature,
+      ammonia: this.ammonia,
+      user: this.user});
     }
   }
 }
