@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <h1>{{ msg }}</h1>
+    <line-chart :chart-data="datacollection"></line-chart>
+    <button v-on:click="fillData">Randomize</button>
     <button v-on:click="addMeasures">Add Measures</button>
     <button v-on:click="logout">Logout</button>
   </div>
@@ -8,13 +9,20 @@
 
 <script>
 import firebase from 'firebase';
+import LineChart from '../LineChart.js';
 
 export default {
+  components: {
+    LineChart
+  },
   name: 'home',
   data () {
     return {
-      msg: 'Revolve Farms App'
+      datacollection: null
     }
+  },
+  mounted () {
+    this.fillData()
   },
   methods: {
     logout: function() {
@@ -24,6 +32,37 @@ export default {
     },
     addMeasures: function() {
       this.$router.replace('input-measures')
+    },
+    fillData: function() {
+      this.datacollection = {
+        labels: ["2018/02/19", "2018/03/04", "2018/03/14","2018/03/21", "2018/03/29"],
+        datasets: [
+          {
+            label: 'pH',
+            backgroundColor: '#f87979',
+            data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
+          }, {
+            label: 'temperature',
+            backgroundColor: '#22A7F0',
+            data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
+          }, {
+            label: 'ammonia',
+            backgroundColor: '#26A65B',
+            data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
+          }, {
+            label: 'nitrite',
+            backgroundColor: '#F4D03F',
+            data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
+          }, {
+            label: 'nitrate',
+            backgroundColor: '#F9690E',
+            data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
+          }
+        ]
+      }
+    },
+    getRandomInt () {
+      return Math.floor(Math.random() * (50 - 5 + 1)) + 5
     }
   }
 }
