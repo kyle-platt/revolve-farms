@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>{{ msg }}</h1>
-
+    <button v-on:click="addMeasures">Add Measures</button>
     <button v-on:click="logout">Logout</button>
   </div>
 </template>
@@ -21,6 +21,9 @@ export default {
       firebase.auth().signOut().then(() => {
         this.$router.replace('login')
       })
+    },
+    addMeasures: function() {
+      this.$router.replace('input-measures')
     }
   }
 }
