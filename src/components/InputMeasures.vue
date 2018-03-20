@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <input v-model="date" placeholder="enter date mm/dd/yyyy"><br>
+    <input v-model="date" type="date"><br>
     <input v-model="ph" placeholder="enter ph"><br>
     <input v-model="nitrate" placeholder="enter nitrate"><br>
     <input v-model="nitrite" placeholder="enter nitrite"><br>
@@ -15,6 +15,8 @@
 import firebase from 'firebase';
 import { dateRef } from '../firebase';
 
+var decPat = /[0-9]+.?[0-9]*/;
+
 export default {
 
   data () {
@@ -24,13 +26,17 @@ export default {
   },
   methods: {
     submitMeasure() {
-      dateRef.push({ date: this.date,
-      ph: this.ph,
-      nitrate: this.nitrate,
-      nitrite: this.nitrite,
-      temperature: this.temperature,
-      ammonia: this.ammonia,
-      user: this.user});
+      if (decPat.test(this.ph) && decPat.test(this.nitrate) &&
+          decPat.test(this.nitrite) && decPat.test(this.temperature) &&
+          decPat.test(this.ammonia)){
+        dateRef.push({ date: this.date,
+          ph: this.ph,
+          nitrate: this.nitrate,
+          nitrite: this.nitrite,
+          temperature: this.temperature,
+          ammonia: this.ammonia,
+          user: this.user});
+      }
     }
   }
 }
