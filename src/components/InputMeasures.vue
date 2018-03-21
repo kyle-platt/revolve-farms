@@ -14,7 +14,7 @@
 
 <script>
 import firebase from 'firebase';
-import { dateRef } from '../firebase';
+import { ref } from '../firebase';
 
 var decPat = /[0-9]+.?[0-9]*/;
 
@@ -30,7 +30,7 @@ export default {
       if (decPat.test(this.ph) && decPat.test(this.nitrate) &&
           decPat.test(this.nitrite) && decPat.test(this.temperature) &&
           decPat.test(this.ammonia)){
-        dateRef.push({ date: this.date,
+        ref.push({ date: this.date,
           ph: this.ph,
           nitrate: this.nitrate,
           nitrite: this.nitrite,

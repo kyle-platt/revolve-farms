@@ -10,4 +10,4 @@ const app = initializeApp({
 });
 
 export const db = app.database();
-export const dateRef = db.ref('date');
+export const ref = db.ref();

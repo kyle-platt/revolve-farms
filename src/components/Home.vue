@@ -4,16 +4,14 @@
     <button v-on:click="fillData">Randomize</button>
     <button v-on:click="addMeasures">Add Measures</button>
     <button v-on:click="logout">Logout</button>
-    <ul v-for="date in dates">
-      <li>{{dates}}</li>
-    </ul>
+    <p>{{ dates }}</p>
   </div>
 </template>
 
 <script>
 import firebase from 'firebase';
 import LineChart from '../LineChart.js';
-import { dateRef } from '../firebase';
+import { ref } from '../firebase';
 
 export default {
   components: {
@@ -28,8 +26,10 @@ export default {
   mounted () {
     this.fillData()
   },
-  firebase: {
-    dates: dateRef
+  firebase: function() {
+    return {
+      dates: ref
+    }
   },
   methods: {
     logout: function() {
@@ -43,7 +43,7 @@ export default {
     fillData: function() {
       var pH = [32, 43, 21, 13, 18];
       this.datacollection = {
-        labels: ["2018/02/19", "2018/03/04", "2018/03/14","2018/03/21", "2018/03/29"],
+        labels: ["2018/03/04", "2018/03/04", "2018/03/14","2018/03/21", "2018/03/29"],
         datasets: [
           {
             label: 'pH',
@@ -52,7 +52,7 @@ export default {
           }, {
             label: 'temperature',
             backgroundColor: '#22A7F0',
-            data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
+            data: [ this.getRandomInt() , this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
           }, {
             label: 'ammonia',
             backgroundColor: '#26A65B',
