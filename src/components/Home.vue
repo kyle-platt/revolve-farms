@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <line-chart :chart-data="datacollection"></line-chart>
+    <button v-on:click="printShit">get some stuff</button>
     <button v-on:click="fillData">Randomize</button>
     <button v-on:click="addMeasures">Add Measures</button>
     <button v-on:click="logout">Logout</button>
@@ -10,6 +11,7 @@
 <script>
 import firebase from 'firebase';
 import LineChart from '../LineChart.js';
+import { dateRef } from '../firebase';
 
 export default {
   components: {
@@ -34,13 +36,14 @@ export default {
       this.$router.replace('input-measures')
     },
     fillData: function() {
+      var pH = [32, 43, 21, 13, 18];
       this.datacollection = {
         labels: ["2018/02/19", "2018/03/04", "2018/03/14","2018/03/21", "2018/03/29"],
         datasets: [
           {
             label: 'pH',
             backgroundColor: '#f87979',
-            data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
+            data: pH
           }, {
             label: 'temperature',
             backgroundColor: '#22A7F0',
@@ -63,7 +66,7 @@ export default {
     },
     getRandomInt () {
       return Math.floor(Math.random() * (50 - 5 + 1)) + 5
-    }
+    },
   }
 }
 </script>

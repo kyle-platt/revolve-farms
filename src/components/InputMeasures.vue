@@ -8,6 +8,16 @@
     <input v-model="ammonia" placeholder="enter ammonia"><br>
     <input v-model="user" placeholder="enter username"><br>
     <button class="revolve-btn" v-on:click="submitMeasure">Publish</button>
+
+    <ul v-for="date in dates">
+      <li>{{date.date}}</li>
+      <li>{{date.ph}}</li>
+      <li>{{date.nitrate}}</li>
+      <li>{{date.nitrite}}</li>
+      <li>{{date.temperature}}</li>
+      <li>{{date.ammonia}}</li>
+      <li>{{date.user}}</li>
+    </ul>
   </div>
 </template>
 
@@ -24,6 +34,9 @@ export default {
       date: ''
     }
   },
+  firebase: {
+    dates: dateRef
+  },
   methods: {
     submitMeasure() {
       if (decPat.test(this.ph) && decPat.test(this.nitrate) &&
@@ -38,6 +51,9 @@ export default {
           user: this.user});
       }
     }
+  },
+  for (i = 0; i < dates.length; i++) {
+    
   }
 }
 </script>
