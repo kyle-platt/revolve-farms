@@ -36,7 +36,8 @@ export default {
           nitrite: this.nitrite,
           temperature: this.temperature,
           ammonia: this.ammonia,
-          user: this.user});
+          user: this.user}),
+          this.$router.replace('home');
       }
     }
   }

@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <line-chart :chart-data="datacollection"></line-chart>
-    <button v-on:click="fillData">Randomize</button>
     <button v-on:click="addMeasures">Add Measures</button>
     <button v-on:click="logout">Logout</button>
   </div>
@@ -94,9 +93,6 @@ export default {
           }
         ]
       }
-    },
-    getRandomInt () {
-      return Math.floor(Math.random() * (50 - 5 + 1)) + 5
     }
   }
 }
