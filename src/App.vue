@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+  <img src="./assets/shyam.png" width="400" height="500"><br>
+  <p><h1>Let's get them greens!</h1></p><br>
     <router-view></router-view>
   </div>
 </template>
