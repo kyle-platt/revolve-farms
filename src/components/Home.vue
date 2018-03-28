@@ -1,8 +1,8 @@
 <template>
   <div class="home">
+    <button style="position: absolute; right: 0; margin-right: 100px;" v-on:click="addMeasures">Add Measures</button>
+    <button style="position: absolute; right: 0; margin-right: 40px;" v-on:click="logout">Logout</button><br><br><br>
     <line-chart :chart-data="datacollection"></line-chart>
-    <button v-on:click="addMeasures">Add Measures</button>
-    <button v-on:click="logout">Logout</button>
   </div>
 </template>
 
@@ -73,7 +73,7 @@ export default {
           {
             label: 'pH',
             backgroundColor: '#f87979',
-            data: phArray
+            data: phArray,
           }, {
             label: 'temperature',
             backgroundColor: '#22A7F0',
