@@ -11,34 +11,6 @@ import firebase from 'firebase';
 import LineChart from '../LineChart.js';
 import { Aref } from '../firebase';
 
-var phArray = [];
-var dateArray = [];
-var ammoniaArray = [];
-var tempArray = [];
-var nitriteArray = [];
-var nitrateArray = [];
-var refKey;
-var ref = firebase.database().ref();
-ref.on("value", function(snapshot) {
-   var theKeys = snapshot.val();
-   var x;
-   for (x in theKeys) {
-      refKey = firebase.database().ref(x);
-      refKey.on("value", function(snapshot) {
-         dateArray.push(snapshot.val().date);
-         phArray.push(Number(snapshot.val().ph));
-         ammoniaArray.push(Number(snapshot.val().ammonia));
-         tempArray.push(Number(snapshot.val().temperature));
-         nitrateArray.push(Number(snapshot.val().nitrate));
-         nitriteArray.push(Number(snapshot.val().nitrite));
-      }, function (error) {
-         console.log("Error: " + error.code);
-      });
-   }
-}, function (error) {
-   console.log("Error: " + error.code);
-});
-
 export default {
   components: {
     LineChart
@@ -68,31 +40,127 @@ export default {
     },
     fillData: function() {
       this.datacollection = {
-        labels: dateArray,
+        labels: this.getLabel(),
         datasets: [
           {
             label: 'pH',
             backgroundColor: '#f87979',
-            data: phArray,
+            data: this.getPh(),
           }, {
             label: 'temperature',
             backgroundColor: '#22A7F0',
-            data: tempArray
+            data: this.getTemp(),
           }, {
             label: 'ammonia',
             backgroundColor: '#26A65B',
-            data: ammoniaArray
+            data: this.getAmmonia(),
           }, {
             label: 'nitrite',
             backgroundColor: '#F4D03F',
-            data: nitriteArray
+            data: this.getNitrite(),
           }, {
             label: 'nitrate',
             backgroundColor: '#F9690E',
-            data: nitrateArray
+            data: this.getNitrate(),
           }
         ]
       }
+    },
+    getPh: function() {
+    var phArray = [];
+    var refKeyForPh;
+    var aRef = firebase.database().ref();
+    aRef.on("value", function(snapshot) {
+       var theKeysPh = snapshot.val();
+       var x;
+       for (x in theKeysPh) {
+          refKeyForPh = firebase.database().ref(x);
+          refKeyForPh.on("value", function(snapshot) {
+             phArray.push(Number(snapshot.val().ph));
+          });
+       }
+    });
+    return phArray
+    },
+    getLabel: function() {
+    var dateArray = [];
+    var refKeyForDate;
+    var aRef = firebase.database().ref();
+    aRef.on("value", function(snapshot) {
+       var theKeysDate = snapshot.val();
+       var x;
+       for (x in theKeysDate) {
+          refKeyForDate = firebase.database().ref(x);
+          refKeyForDate.on("value", function(snapshot) {
+             dateArray.push(snapshot.val().date);
+          });
+       }
+    });
+    return dateArray
+    },
+    getTemp: function() {
+    var tempArray = [];
+    var refKeyForTemp;
+    var aRef = firebase.database().ref();
+    aRef.on("value", function(snapshot) {
+       var theKeysTemp = snapshot.val();
+       var x;
+       for (x in theKeysTemp) {
+          refKeyForTemp = firebase.database().ref(x);
+          refKeyForTemp.on("value", function(snapshot) {
+             tempArray.push(Number(snapshot.val().temperature));
+          });
+       }
+    });
+    return tempArray
+    },
+    getAmmonia: function() {
+    var ammoniaArray = [];
+    var refKeyForAmmonia;
+    var aRef = firebase.database().ref();
+    aRef.on("value", function(snapshot) {
+       var theKeysAmmonia = snapshot.val();
+       var x;
+       for (x in theKeysAmmonia) {
+          refKeyForAmmonia = firebase.database().ref(x);
+          refKeyForAmmonia.on("value", function(snapshot) {
+             ammoniaArray.push(Number(snapshot.val().ammonia));
+          });
+       }
+    });
+    return ammoniaArray
+    },
+    getNitrate: function() {
+    var nitrateArray = [];
+    var refKeyForNitrate;
+    var aRef = firebase.database().ref();
+    aRef.on("value", function(snapshot) {
+       var theKeysNitrate = snapshot.val();
+       var x;
+       for (x in theKeysNitrate) {
+          refKeyForNitrate = firebase.database().ref(x);
+          refKeyForNitrate.on("value", function(snapshot) {
+             nitrateArray.push(Number(snapshot.val().nitrate));
+          });
+       }
+    });
+    return nitrateArray
+    },
+    getNitrite: function() {
+    var nitriteArray = [];
+    var refKeyForNitrite;
+    var aRef = firebase.database().ref();
+    aRef.on("value", function(snapshot) {
+       var theKeysNitrite = snapshot.val();
+       var x;
+       for (x in theKeysNitrite) {
+          refKeyForNitrite = firebase.database().ref(x);
+          refKeyForNitrite.on("value", function(snapshot) {
+             nitriteArray.push(Number(snapshot.val().temperature));
+          });
+       }
+    });
+    return nitriteArray
     }
   }
 }
