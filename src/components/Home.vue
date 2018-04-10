@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <img src="../assets/Revolve-farms-logo.png" width="400" height="300"><br>
     <button style="position: absolute; right: 0; margin-right: 100px;" v-on:click="addMeasures">Add Measures</button>
     <button style="position: absolute; right: 0; margin-right: 40px;" v-on:click="logout">Logout</button><br><br><br>
     <line-chart :chart-data="datacollection"></line-chart>

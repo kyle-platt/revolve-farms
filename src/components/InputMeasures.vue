@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    <img src="../assets/Revolve-farms-logo.png" width="400" height="300"><br>
     <input v-model="date" type="date"><br>
     <input v-model="ph" placeholder="enter ph"><br>
     <input v-model="nitrate" placeholder="enter nitrate"><br>
