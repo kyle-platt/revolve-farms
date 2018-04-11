@@ -44,18 +44,23 @@
     padding: 15px;
   }
   .revolve-btn {
-    text-align: center;
-    color: #FFFFFF;
-    font-size: 15px;
-    font-size: 1.5rem;
-    padding: 14px 80px;
-    background-color: #AAD152;
-    margin: 20px auto;
-    width: 22%;
-    cursor: pointer;
-    transition-duration: 0.5s;
-    -webkit-transition-duration: 0.5s;
-    -moz-transition-duration: 0.5s;
+  h1, h2 {
+    font-weight: bold;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  a {
+    color: #42b983;
+  }
   }
   .revolve-btn:hover {
     background-color: #6D8E22;
