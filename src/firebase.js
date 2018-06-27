@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase';
 
 const app = initializeApp({
-  apiKey: "AIzaSyDbZ49mKjauw3lJd0WUWfwcjVXnNKuZQcg",
+  apiKey: "Enter key when used",
   authDomain: "revolve-farms.firebaseapp.com",
   databaseURL: "https://revolve-farms.firebaseio.com",
   projectId: "revolve-farms",
